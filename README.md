@@ -1,6 +1,6 @@
 # Ejercicio ci-cd-flask
 
-En esta practica haremos una integracion y un desliegue continuo y haremos una serie de test sobre un archivo app.py, para ello he hecho un fork al repositorio, en este están los archivos necesarios para realizar la integracion y el desliegue continuo para una aplicación Flask.
+En esta practica haremos una integracion y un desliegue continuo y haremos una serie de test sobre un archivo app.py, para ello he hecho un fork al siguiente repositorio https://github.com/josejuansanchez/ci-cd-flask, en este están los archivos necesarios para realizar la integracion y el desliegue continuo para una aplicación Flask.
 
 Lo primero que haremos será crear un entorno virtual en Python, escribiremos el comando: 
 
@@ -67,10 +67,38 @@ deactivate
 
 ![imagen](./img/7.png)  
 
+Pero en github necesitaremos generar tockens en dockerhub y asocuarlas en nuestro repositorio github, para ello nos dirigimos a nuestro repositorio, pulsamos en settings despues en Security seleccionaremos secretis and variables donde encontraremos la seccion envioriment secrets, le pulsamos a new reposity secrets donde escribiremos un nombre de variable y un secreto, en este caso crearemos dos nombres de variables. Me he valido de la practica 2048 para explicar cómo es este proceso (ya que en su momento se me olvidó hacer capturas de este proceso pero en esta practica), los pasos son exactamente los mismos.
+
+![imagen](./img/1a.png)  
+
+Los siguientes pasos que daremos será irnos a dockerhub y dirigirnos a la configuración del perfil, seleccionamos la opcion personal access tockens y luego le damos al boton azul generate new tocken  
+
+
+![imagen](./img/2a.png)  
+![imagen](./img/3a.png)  
+![imagen](./img/4a.png)   
+
+aqui le daremos una descripcion al tocken, le pondremos que no tiene fecha de caducidad y sobretodo le daremos permisos de lecturta, escritura y eliminacion
+
+![imagen](./img/5a.png)  
+
+Entonces nos dará dos comandos, el primero el login de docker con nuestro nombre de usuario donde solo copiaremos el nombre de usuario y una contraseña para acceder al tocken  
+
+![imagen](./img/6a.png)  
+
+Entonces en github nos crearemos una variable DOCKERHUB_USERNAME cullo secreto será el nombre de usuario generado en tel tocken de dockerhub y crearemos otro secreto mas que lo llamaremos DOCKERHUB_TOKEN cullo secreto será la clave generada en el token de en dockerhub  
+
+![imagen](./img/7a.png) 
+![imagen](./img/8a.png) 
+
+
+En el repositorio al que le he hecho un fork ta venia la configuracion del workflow por lo que no lo he tenido que crear yo.  
 Al hacer un push las aciones de github se pondrán en ejecucion los workflows, si el simbolo naranja se vuelve verde sigmifica que se realizó la ejecución correctamente, si se pone rojo significa que hubo un fallo  
 
 
 ![imagen](./img/13.png)  
 
 ![imagen](./img/14.png)  
+
+
 
