@@ -101,4 +101,4 @@ Al hacer un push las aciones de github se pondrán en ejecucion los workflows, s
 ![imagen](./img/14.png)  
 
 
-
+Y el dockerfile se subirá a nuestro dockerhub
